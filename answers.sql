@@ -27,3 +27,12 @@ WHERE Product != '';
 
 
 QUESTION TWO:
+-- Create Orders table (removes partial dependency)
+CREATE TABLE Orders AS
+SELECT DISTINCT OrderID, CustomerName
+FROM OrderDetails;
+
+-- Create OrderProducts table (retains full dependency)
+CREATE TABLE OrderProducts AS
+SELECT OrderID, Product, Quantity
+FROM OrderDetails;
